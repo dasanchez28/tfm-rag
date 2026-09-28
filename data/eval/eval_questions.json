@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What is Retrieval-Augmented Generation and what problem does it solve?",
+    "ground_truth": "RAG combines a neural retriever with a generator so the model can access external, updatable knowledge, reducing hallucination and reliance on outdated parametric knowledge."
+  },
+  {
+    "question": "How does the ReAct paradigm interleave reasoning and acting?",
+    "ground_truth": "ReAct alternates reasoning traces (Thought) with actions (Action) and observations (Observation) in an iterative loop, letting the model plan and interact with external tools."
+  },
+  {
+    "question": "What is the difference between dense and sparse retrieval?",
+    "ground_truth": "Dense retrieval compares embedding vectors that capture semantics; sparse retrieval such as BM25 scores exact lexical term overlap. They are complementary."
+  },
+  {
+    "question": "Why is faithfulness important when evaluating RAG systems?",
+    "ground_truth": "Faithfulness measures the fraction of answer claims supported by the retrieved context, directly quantifying the absence of hallucination."
+  },
+  {
+    "question": "What are the three paradigms of RAG systems described in the surveys?",
+    "ground_truth": "Naive RAG (retrieve-read), Advanced RAG (pre- and post-retrieval optimizations), and Modular RAG (interchangeable, reconfigurable modules)."
+  },
+  {
+    "question": "How does Self-RAG decide when to retrieve?",
+    "ground_truth": "Self-RAG trains the model to emit reflection tokens that signal when retrieval is needed and assess the relevance and support of the retrieved context."
+  },
+  {
+    "question": "What is Reciprocal Rank Fusion used for in hybrid retrieval?",
+    "ground_truth": "RRF fuses several ranked lists using only the rank position of each document, making it robust to differences in score scales between dense and sparse retrievers."
+  },
+  {
+    "question": "What limitation of long-context LLMs does the lost-in-the-middle phenomenon describe?",
+    "ground_truth": "LLMs use information placed in the middle of long contexts less effectively than information at the beginning or end, degrading performance when flooded with documents."
+  },
+  {
+    "question": "What is text chunking and why does it matter in a RAG pipeline?",
+    "ground_truth": "Chunking splits documents into smaller passages for indexing and retrieval; chunk size and overlap control granularity and affect retrieval precision and context quality."
+  },
+  {
+    "question": "What are embeddings and how are they used for retrieval?",
+    "ground_truth": "Embeddings are dense vector representations that capture semantic meaning; retrieval compares them by similarity, typically cosine similarity, to find related passages."
+  },
+  {
+    "question": "How does BM25 rank documents against a query?",
+    "ground_truth": "BM25 is a lexical ranking function based on term frequency, inverse document frequency and document-length normalization."
+  },
+  {
+    "question": "What is reranking and why is it applied after the initial retrieval?",
+    "ground_truth": "Reranking reorders the retrieved candidates with a more precise model, such as a cross-encoder, to improve the precision of the final top-k passages."
+  },
+  {
+    "question": "What role does a vector database play in a RAG system?",
+    "ground_truth": "A vector database stores embeddings and indexes them for efficient approximate nearest-neighbour search over large corpora."
+  },
+  {
+    "question": "What is query rewriting and how does it help retrieval?",
+    "ground_truth": "Query rewriting reformulates or expands the user query to better match relevant documents, improving retrieval when the original wording is ambiguous or sparse."
+  },
+  {
+    "question": "What is the idea behind Hypothetical Document Embeddings (HyDE)?",
+    "ground_truth": "HyDE uses the LLM to generate a hypothetical answer document and retrieves with its embedding, improving retrieval for queries that lack good lexical terms."
+  },
+  {
+    "question": "What causes hallucinations in large language models?",
+    "ground_truth": "Hallucinations arise when the model generates plausible but unsupported content, due to incomplete or outdated parametric knowledge and the absence of grounding sources."
+  },
+  {
+    "question": "How does RAG reduce hallucinations compared to a standalone LLM?",
+    "ground_truth": "RAG conditions generation on retrieved evidence, allowing grounded, source-attributable answers instead of relying solely on parametric memory."
+  },
+  {
+    "question": "What is the difference between context precision and context recall?",
+    "ground_truth": "Context precision is the proportion of retrieved context that is relevant; context recall is the proportion of the relevant information that was actually retrieved."
+  },
+  {
+    "question": "What does answer relevancy measure in RAG evaluation?",
+    "ground_truth": "Answer relevancy measures how pertinent and direct the generated answer is with respect to the posed question."
+  },
+  {
+    "question": "What are knowledge-intensive NLP tasks?",
+    "ground_truth": "Tasks that require external factual knowledge, such as open-domain question answering and fact verification, where retrieval-augmented approaches are especially beneficial."
+  },
+  {
+    "question": "When is RAG preferable to fine-tuning for injecting knowledge?",
+    "ground_truth": "RAG is preferable when knowledge changes frequently, must be traceable, or is large; fine-tuning is better suited to adapting style or behaviour."
+  },
+  {
+    "question": "What is GraphRAG and what problem does it address?",
+    "ground_truth": "GraphRAG builds a knowledge graph and community summaries to answer global, synthesis-oriented questions that chunk-based retrieval handles poorly."
+  },
+  {
+    "question": "What is multi-hop question answering?",
+    "ground_truth": "Multi-hop QA requires combining information from multiple documents or reasoning steps to reach the final answer."
+  },
+  {
+    "question": "What role do agents and tool use play in modern LLM systems?",
+    "ground_truth": "Agents plan, decide on actions and iteratively use external tools, enabling LLMs to solve complex tasks beyond a single generation step."
+  },
+  {
+    "question": "Why is evaluating RAG systems challenging?",
+    "ground_truth": "Evaluation must assess both retrieval and generation, often without a single reference answer, which motivates metrics such as faithfulness, answer relevancy and context precision and recall."
+  },
+  {
+    "question": "What is the effect of the retriever's top-k parameter?",
+    "ground_truth": "Top-k sets how many passages are retrieved, trading off coverage against noise and dilution of the context provided to the generator."
+  },
+  {
+    "question": "What is Dense Passage Retrieval (DPR)?",
+    "ground_truth": "DPR is a dense retrieval method using dual encoders trained contrastively to embed questions and passages for open-domain question answering."
+  },
+  {
+    "question": "How does chain-of-thought prompting improve reasoning?",
+    "ground_truth": "Chain-of-thought prompting elicits intermediate reasoning steps before the final answer, improving performance on complex reasoning tasks."
+  },
+  {
+    "question": "What are the main open challenges of RAG systems?",
+    "ground_truth": "Key challenges include retrieval quality, integrating retrieved context effectively, latency and cost, robust evaluation, and handling long or noisy contexts."
+  },
+  {
+    "question": "How do chunk size and overlap affect RAG performance?",
+    "ground_truth": "Small chunks improve precision but fragment context; large chunks preserve context but add noise; overlap helps preserve continuity across adjacent chunks."
+  }
+]
