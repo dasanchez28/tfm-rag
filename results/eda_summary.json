@@ -1,0 +1,9 @@
+{
+  "n_documents": 60,
+  "n_chunks": 6308,
+  "mean_chars_per_doc": 69202.8,
+  "mean_chunks_per_doc": 105.1,
+  "mean_tokens_per_chunk": 175.1,
+  "max_tokens_per_chunk": 847,
+  "n_categories": 7
+}
