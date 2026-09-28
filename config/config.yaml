@@ -1,0 +1,45 @@
+# ============================================================
+#  RAG pipeline configuration
+# ============================================================
+
+data:
+  # arXiv search query used to build the corpus
+  arxiv_query: "cat:cs.CL AND (retrieval augmented generation OR RAG OR retrieval-augmented)"
+  max_papers: 60            # number of papers to download
+  # Reference categories of interest (informative only;
+  # the search itself is defined by arxiv_query)
+  categories:
+    - cs.CL                 # Computation and Language
+    - cs.IR                 # Information Retrieval
+    - cs.AI                 # Artificial Intelligence
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+
+chunking:
+  chunk_size: 800           # characters per chunk (recursive splitting)
+  chunk_overlap: 120        # overlap between consecutive chunks
+
+retrieval:
+  top_k: 5                  # chunks passed to the generator
+  rrf_k: 60                 # Reciprocal Rank Fusion constant
+  candidates_per_branch: 10 # candidates contributed by each branch (dense / BM25)
+
+generation:
+  answer_language: "Spanish"  # language of the generated answers (used in the reported experiments)
+
+vector_store:
+  persist_dir: "data/processed/chroma"
+  collection_name: "arxiv_rag"
+
+agent:
+  max_iterations: 3         # maximum retrieve/reformulate iterations
+
+evaluation:
+  eval_set: "data/eval/eval_questions.json"
+  variants:                 # the three variants that are compared
+    - simple
+    - hybrid
+    - agentic
+  results_dir: "results"
+
+figures_dir: "figures"
