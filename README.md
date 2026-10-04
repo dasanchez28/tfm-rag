@@ -1,12 +1,13 @@
-# RAG Agent for Technical Documentation
+# RAG Agent for arXiv NLP Scientific Papers
 
 Retrieval-Augmented Generation (RAG) system for reliable question answering over
-technical documentation, combining **hybrid retrieval**, **iterative (agentic)
+a corpus of arXiv scientific papers on natural language processing and
+information retrieval (cs.CL, cs.IR, cs.AI), combining **hybrid retrieval**, **iterative (agentic)
 reasoning** and **source faithfulness verification**.
 
 This repository contains the source code of the Master's Thesis *"RAG agent for
-technical documentation: hybrid retrieval, iterative reasoning and source
-verification"* (MSc in Artificial Intelligence, 09MIAR, Universidad Internacional
+querying arXiv scientific papers on natural language processing: hybrid
+retrieval, iterative reasoning and source verification"* (MSc in Artificial Intelligence, 09MIAR, Universidad Internacional
 de Valencia, 2025-2026).
 
 - **Author:** Diego Aguado Sánchez
